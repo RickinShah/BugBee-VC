@@ -11241,7 +11241,7 @@ function leaveFeedback() {
 }
 
 function redirectOnLeave() {
-    redirectActive ? openURL(redirectURL) : openURL('https://thebugbee.vercel.app/feed');
+    redirectActive ? openURL(redirectURL) : openURL('https://thebugbee.vercel.app/vc');
 }
 
 /**
