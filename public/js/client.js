@@ -1108,7 +1108,7 @@ function countPeerConnections() {
 /**
  * Get Started...
  */
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     initClientPeer();
 });
 
@@ -1831,7 +1831,7 @@ async function changeInitCamera(deviceId) {
         videoSelect.selectedIndex = 0;
         refreshLsDevices();
         // Refresh page...
-        setTimeout(function () {
+        setTimeout(function() {
             location.reload();
         }, 3000);
     }
@@ -2064,7 +2064,7 @@ async function handleAddPeer(config) {
  * @param {string} peer_id socket.id
  */
 async function handlePeersConnectionStatus(peer_id) {
-    peerConnections[peer_id].onconnectionstatechange = function (event) {
+    peerConnections[peer_id].onconnectionstatechange = function(event) {
         const connectionStatus = event.currentTarget.connectionState;
         const signalingState = event.currentTarget.signalingState;
         const peerName = allPeers[peer_id]['peer_name'];
@@ -3835,8 +3835,8 @@ function setPeerChatAvatarImgName(avatar, peerName, peerAvatar) {
         peerAvatar && isImageURL(peerAvatar)
             ? peerAvatar
             : isValidEmail(peerName)
-              ? genGravatar(peerName)
-              : genAvatarSvg(peerName, 32);
+                ? genGravatar(peerName)
+                : genAvatarSvg(peerName, 32);
 
     switch (avatar) {
         case 'left':
@@ -3994,20 +3994,20 @@ function handleVideoPlayerFs(videoId, videoFullScreenBtnId, peer_id = null) {
 function handleFileDragAndDrop(elemId, peer_id, itsMe = false) {
     const videoPeer = getId(elemId);
 
-    videoPeer.addEventListener('dragover', function (e) {
+    videoPeer.addEventListener('dragover', function(e) {
         e.preventDefault();
         e.stopPropagation();
         e.target.parentElement.style.outline = '3px dashed var(--dd-color)';
         document.querySelector('.Camera').style.outline = 'none';
     });
 
-    videoPeer.addEventListener('dragleave', function (e) {
+    videoPeer.addEventListener('dragleave', function(e) {
         e.preventDefault();
         e.stopPropagation();
         e.target.parentElement.style.outline = 'none';
     });
 
-    videoPeer.addEventListener('drop', function (e) {
+    videoPeer.addEventListener('drop', function(e) {
         e.preventDefault();
         e.stopPropagation();
         e.target.parentElement.style.outline = 'none';
@@ -4818,7 +4818,7 @@ function setChatRoomBtn() {
     });
 
     // on input check 4emoji from map
-    msgerInput.oninput = function () {
+    msgerInput.oninput = function() {
         for (let i in chatInputEmoji) {
             let regex = new RegExp(escapeSpecialChars(i), 'gim');
             this.value = this.value.replace(regex, chatInputEmoji[i]);
@@ -5071,7 +5071,7 @@ function setMyWhiteboardBtn() {
     whiteboardRedoBtn.addEventListener('click', (e) => {
         whiteboardAction(getWhiteboardAction('redo'));
     });
-    whiteboardDropDownMenuBtn.addEventListener('click', function () {
+    whiteboardDropDownMenuBtn.addEventListener('click', function() {
         whiteboardDropdownMenu.style.display === 'block'
             ? elemDisplay(whiteboardDropdownMenu, false)
             : elemDisplay(whiteboardDropdownMenu, true, 'block');
@@ -5589,7 +5589,7 @@ function setupMySettings() {
         refreshLsDevices();
     });
     // advance audio options
-    micOptionsBtn.addEventListener('click', function () {
+    micOptionsBtn.addEventListener('click', function() {
         micDropDownMenu.style.display === 'block'
             ? elemDisplay(micDropDownMenu, false)
             : elemDisplay(micDropDownMenu, true, 'block');
@@ -7966,8 +7966,8 @@ function handleSpeechTranscript(config) {
         peer_avatar && isImageURL(peer_avatar)
             ? peer_avatar
             : isValidEmail(peer_name)
-              ? genGravatar(peer_name)
-              : genAvatarSvg(peer_name, 32);
+                ? genGravatar(peer_name)
+                : genAvatarSvg(peer_name, 32);
 
     if (!isCaptionBoxVisible) showCaptionDraggable();
 
@@ -8273,8 +8273,8 @@ async function msgerAddPeers(peers) {
                     peer_avatar && isImageURL(peer_avatar)
                         ? peer_avatar
                         : isValidEmail(peer_name)
-                          ? genGravatar(peer_name)
-                          : genAvatarSvg(peer_name, 24);
+                            ? genGravatar(peer_name)
+                            : genAvatarSvg(peer_name, 24);
 
                 const msgerPrivateDiv = `
                 <div id="${peer_id}_pMsgDiv" class="msger-peer-inputarea">
@@ -8432,7 +8432,7 @@ function sanitizeHtml(input) {
 function isHtml(str) {
     let a = document.createElement('div');
     a.innerHTML = str;
-    for (let c = a.childNodes, i = c.length; i--; ) {
+    for (let c = a.childNodes, i = c.length; i--;) {
         if (c[i].nodeType == 1) return true;
     }
     return false;
@@ -8626,7 +8626,7 @@ async function getChatGPTmessage(msg) {
             },
         })
         .then(
-            function (completion) {
+            function(completion) {
                 if (!completion) return;
                 const { message, context } = completion;
                 chatGPTcontext = context ? context : [];
@@ -8798,8 +8798,8 @@ function handlePeerName(config) {
             peer_avatar && isImageURL(peer_avatar)
                 ? peer_avatar
                 : isValidEmail(peer_name)
-                  ? genGravatar(peer_name)
-                  : genAvatarSvg(peer_name, 32);
+                    ? genGravatar(peer_name)
+                    : genAvatarSvg(peer_name, 32);
     }
 
     // refresh also peer video avatar name
@@ -9808,7 +9808,7 @@ function whiteboardAddObj(type) {
                 if (result.isConfirmed) {
                     let wbCanvasImgURL = result.value;
                     if (isImageURL(wbCanvasImgURL)) {
-                        fabric.Image.fromURL(wbCanvasImgURL, function (myImg) {
+                        fabric.Image.fromURL(wbCanvasImgURL, function(myImg) {
                             addWbCanvasObj(myImg);
                         });
                     } else {
@@ -9966,10 +9966,10 @@ function setupFileSelection(title, accept, renderToCanvas) {
 function renderImageToCanvas(wbCanvasImg) {
     if (wbCanvasImg && wbCanvasImg.size > 0) {
         let reader = new FileReader();
-        reader.onload = function (event) {
+        reader.onload = function(event) {
             let imgObj = new Image();
             imgObj.src = event.target.result;
-            imgObj.onload = function () {
+            imgObj.onload = function() {
                 let image = new fabric.Image(imgObj);
                 image.set({ top: 0, left: 0 }).scale(0.3);
                 addWbCanvasObj(image);
@@ -9986,7 +9986,7 @@ function renderImageToCanvas(wbCanvasImg) {
 async function renderPdfToCanvas(wbCanvasPdf) {
     if (wbCanvasPdf && wbCanvasPdf.size > 0) {
         let reader = new FileReader();
-        reader.onload = async function (event) {
+        reader.onload = async function(event) {
             wbCanvas.requestRenderAll();
             await pdfToImage(event.target.result, wbCanvas);
             whiteboardIsDrawingMode(false);
@@ -10088,16 +10088,16 @@ function addWbCanvasObj(obj) {
  * Whiteboard: Local listners
  */
 function setupWhiteboardLocalListners() {
-    wbCanvas.on('mouse:down', function (e) {
+    wbCanvas.on('mouse:down', function(e) {
         mouseDown(e);
     });
-    wbCanvas.on('mouse:up', function () {
+    wbCanvas.on('mouse:up', function() {
         mouseUp();
     });
-    wbCanvas.on('mouse:move', function () {
+    wbCanvas.on('mouse:move', function() {
         mouseMove();
     });
-    wbCanvas.on('object:added', function () {
+    wbCanvas.on('object:added', function() {
         objectAdded();
     });
 }
@@ -10357,7 +10357,7 @@ function handleWhiteboardAction(config, logMe = true) {
 function wbDrawing(status) {
     wbCanvas.isDrawingMode = status; // Disable free drawing
     wbCanvas.selection = status; // Disable object selection
-    wbCanvas.forEachObject(function (obj) {
+    wbCanvas.forEachObject(function(obj) {
         obj.selectable = status; // Make all objects unselectable
     });
 }
@@ -11164,10 +11164,9 @@ function showAbout() {
         html: `
             <br/>
             <div id="about">
-                ${
-                    brand.about?.html && brand.about.html.trim() !== ''
-                        ? brand.about.html
-                        : `
+                ${brand.about?.html && brand.about.html.trim() !== ''
+                ? brand.about.html
+                : `
                         <button 
                             id="support-button" 
                             data-umami-event="Support button" 
@@ -11196,7 +11195,7 @@ function showAbout() {
                         <span>&copy; 2025 MiroTalk P2P, all rights reserved</span>
                         <hr />
                         `
-                }
+            }
             </div>
         `,
         showClass: { popup: 'animate__animated animate__fadeInDown' },
@@ -11242,7 +11241,7 @@ function leaveFeedback() {
 }
 
 function redirectOnLeave() {
-    redirectActive ? openURL(redirectURL) : openURL('/newcall');
+    redirectActive ? openURL(redirectURL) : openURL('https://thebugbee.vercel.app/feed');
 }
 
 /**
@@ -11361,7 +11360,7 @@ function handlePeerVolume(data) {
     remotePitchBar.style.backgroundColor = audioColorTmp;
     remotePitchBar.style.height = volume + '%';
     //remoteVideoWrap.classList.toggle('speaking');
-    setTimeout(function () {
+    setTimeout(function() {
         remotePitchBar.style.backgroundColor = '#19bb5c';
         remotePitchBar.style.height = '0%';
         //remoteVideoWrap.classList.toggle('speaking');
@@ -11392,7 +11391,7 @@ function handleMyVolume(data) {
     myPitchBar.style.backgroundColor = audioColorTmp;
     myPitchBar.style.height = volume + '%';
     //myVideoWrap.classList.toggle('speaking');
-    setTimeout(function () {
+    setTimeout(function() {
         myPitchBar.style.backgroundColor = '#19bb5c';
         myPitchBar.style.height = '0%';
         //myVideoWrap.classList.toggle('speaking');
