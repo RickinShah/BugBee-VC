@@ -1321,7 +1321,7 @@ function roomIsBusy() {
         hideClass: { popup: 'animate__animated animate__fadeOutUp' },
     }).then((result) => {
         if (result.isConfirmed) {
-            openURL('/');
+            openURL('https://thebugbee.vercel.app/vc');
         }
     });
 }
@@ -1634,7 +1634,8 @@ function userNameAlreadyInRoom() {
         hideClass: { popup: 'animate__animated animate__fadeOutUp' },
     }).then((result) => {
         if (result.isConfirmed) {
-            openURL('/');
+
+            openURL('https://thebugbee.vercel.app/vc');
         }
     });
 }
