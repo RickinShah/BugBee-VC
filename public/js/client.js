@@ -29,7 +29,7 @@ const signalingServer = getSignalingServer();
 // This room
 const myRoomId = getId('myRoomId');
 const roomId = getRoomId();
-const myRoomUrl = 'https://bugbee.vercel.app/vc' + '/join/' + roomId; // share room url
+const myRoomUrl = 'https://thebugbee.vercel.app/vc' + '/join/' + roomId; // share room url
 
 // Images
 const images = {
